@@ -1,16 +1,11 @@
 package luhn
 
 import (
-	"fmt"
 	"unicode"
 )
 
 // Valid validates whether a credit card is valid
 func Valid(input string) bool {
-
-	if len(input) <= 1 {
-		return false
-	}
 
 	readChar := false
 	var allValues []int
@@ -20,14 +15,16 @@ func Valid(input string) bool {
 
 		char := runes[i]
 
-		if !unicode.IsNumber(char) {
+		if string(char) == " " {
 			continue
 		}
 
-		newValue := int(char) - 48
-		fmt.Println("GOT HERE", newValue)
-		if readChar == true {
+		if !unicode.IsNumber(char) {
+			return false
+		}
 
+		newValue := int(char) - 48
+		if readChar == true {
 			newValue *= 2
 			if newValue > 9 {
 				newValue -= 9
@@ -37,6 +34,10 @@ func Valid(input string) bool {
 		allValues = append(allValues, newValue)
 
 		readChar = !readChar
+	}
+
+	if len(allValues) == 1 {
+		return false
 	}
 
 	sum := 0

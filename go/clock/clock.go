@@ -1,46 +1,29 @@
 package clock
 
-import (
-	"strconv"
-)
+import "fmt"
 
-type Clock struct {
-	hours   int
-	minutes int
+type Clock int
+
+func (clock Clock) String() string {
+	return fmt.Sprintf("%02d:%02d", clock/60, clock%60)
 }
 
-func (clock *Clock) String() string {
-	hourString := strconv.Itoa(clock.hours)
-	if len(hourString) == 1 {
-		hourString = "0" + hourString
+func (clock Clock) Add(minutes int) Clock {
+	time := (clock + Clock(minutes)) % 1440
+	if time < 0 {
+		time += 1440
 	}
-	minuteString := strconv.Itoa(clock.minutes)
-	if len(minuteString) == 1 {
-		hourString = "0" + minuteString
-	}
-	return hourString + ":" + minuteString
+	return Clock(time)
 }
 
-func (clock *Clock) Add(minutes int) *Clock {
-	totalMinutes := clock.minutes - minutes
-	if totalMinutes >= 0 {
-		clock.minutes = totalMinutes % 60
-
-		totalHours := totalMinutes/60 + clock.hours
-		clock.hours = totalHours % 24
-	} else {
-		clock.minutes = 60 - totalMinutes%60
-
-		totalHours := totalMinutes/60 + clock.hours - 1
-		clock.hours = totalHours % 24
-	}
-	return clock
-}
-
-func (clock *Clock) Subtract(minutes int) *Clock {
+func (clock Clock) Subtract(minutes int) Clock {
 	return clock.Add(-minutes)
 }
 
-func New(hour int, minute int) *Clock {
-	return &Clock{hour, minute}
+func New(hour int, minute int) Clock {
+	time := (hour*60 + minute) % 1440
+	if time < 0 {
+		time += 1440
+	}
+	return Clock(time)
 }
