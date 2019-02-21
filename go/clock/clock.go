@@ -2,6 +2,7 @@ package clock
 
 import "fmt"
 
+// Clock is a struct that keeps track of time
 type Clock int
 
 // String presents a clock's time in string format
