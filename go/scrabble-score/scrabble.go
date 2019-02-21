@@ -2,6 +2,7 @@ package scrabble
 
 import "strings"
 
+// Score determines the score of a word in scrable
 func Score(word string) int {
 	values := map[string]int{
 		"A": 1,
