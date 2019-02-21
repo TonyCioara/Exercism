@@ -4,7 +4,7 @@ import (
 	"unicode"
 )
 
-// IsPangram determines whther a string is a pangram or not
+// IsPangram determines wether a string is a pangram or not
 func IsPangram(input string) bool {
 
 	letterMap := make(map[rune]bool)
