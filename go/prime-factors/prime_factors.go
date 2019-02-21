@@ -2,6 +2,7 @@ package prime
 
 import "math"
 
+// Factors finds all the prime factors of a number
 func Factors(num int64) []int64 {
 
 	returnArray := []int64{}

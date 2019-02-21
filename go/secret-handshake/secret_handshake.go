@@ -1,5 +1,6 @@
 package secret
 
+// Handshake creates a secret handshake given the input
 func Handshake(input uint) []string {
 
 	factors := []uint{16, 8, 4, 2, 1}

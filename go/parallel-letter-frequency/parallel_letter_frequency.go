@@ -1,5 +1,6 @@
 package letter
 
+// ConcurrentFrequency calculates the frequency of letters in an array of strings
 func ConcurrentFrequency(input []string) FreqMap {
 
 	ch := make(chan FreqMap)

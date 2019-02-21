@@ -1,5 +1,6 @@
 package series
 
+// All finds all series of a given length in a given string
 func All(num int, s string) []string {
 
 	runes := []rune(s)
@@ -14,6 +15,7 @@ func All(num int, s string) []string {
 	return returnStrings
 }
 
+// UnsafeFirst calculates the first series of a given length in a given string
 func UnsafeFirst(num int, s string) string {
 
 	runes := []rune(s)

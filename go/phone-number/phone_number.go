@@ -5,6 +5,7 @@ import (
 	"unicode"
 )
 
+// Number gets a phone number from a string
 func Number(input string) (string, error) {
 
 	finalStr := ""
@@ -38,9 +39,9 @@ func Number(input string) (string, error) {
 	}
 
 	return finalStr, nil
-
 }
 
+// AreaCode gets the area code of a phone number
 func AreaCode(input string) (string, error) {
 	result, err := Number(input)
 	if err != nil {
@@ -49,6 +50,7 @@ func AreaCode(input string) (string, error) {
 	return result[:3], nil
 }
 
+// Format formats a phone number
 func Format(input string) (string, error) {
 	result, err := Number(input)
 	if err != nil {

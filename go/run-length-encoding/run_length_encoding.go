@@ -5,6 +5,7 @@ import (
 	"unicode"
 )
 
+// RunLengthEncode econdes a string
 func RunLengthEncode(input string) string {
 
 	if len(input) == 0 {
@@ -40,6 +41,7 @@ func RunLengthEncode(input string) string {
 	return finalString
 }
 
+// RunLengthDecode decodes a string
 func RunLengthDecode(input string) string {
 
 	lastCount := ""

@@ -5,6 +5,7 @@ import (
 	"unicode"
 )
 
+// Encode encodes a string
 func Encode(input string) string {
 
 	normalized := ""
