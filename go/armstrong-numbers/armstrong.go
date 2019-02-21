@@ -5,6 +5,7 @@ import (
 	"strconv"
 )
 
+// IsNumber determines wether a number is an armstrong number
 func IsNumber(num int) bool {
 
 	runes := []rune(strconv.Itoa(num))
